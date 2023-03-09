@@ -12,7 +12,7 @@ const getCountryByName = (countryName) => {
 
 
 //2 -----------------------------------------------------------  
-// more information about that one country 
+// more information about that one country - link to first method after changing log to console
 const displayCountryInfo = (country) => {
     // creating name and population as elements and add them to section in html
     const section = document.getElementById("country_info");
@@ -68,6 +68,8 @@ const showAllCountries = (countries) => {
         li.appendChild(population);
         ul.appendChild(li);
     });
+
+
 }
 
 getAllCountries();
