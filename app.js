@@ -3,9 +3,10 @@
 const getCountryByName = (countryName) => {
     return fetch(`https://restcountries.com/v3.1/name/${countryName}`)
     .then(response => response.json())
-    .then(data => data[0]);
+    .then(data => displayCountryInfo(data));
     // turns the data on website to array that can be accessed by index (through name)
     // data[0].name.common tried to implement this but it didn't work
+    // was log to console previous but changed to suit the next tasks
 }
 
 
@@ -18,8 +19,8 @@ const displayCountryInfo = (country) => {
     const name = document.createElement('h3');
     const population = document.createElement('p');
     // making the text reflect that of the country inputted
-    name.innerText = country.name.common;
-    population.innerText = `Population: ${country.population}`;
+    name.innerText = country[0].name.common;
+    population.innerText = `Population: ${country[0].population}`;
     // adding the name and population to the section
     section.appendChild(name);
     section.appendChild(population);
@@ -29,11 +30,8 @@ const displayCountryInfo = (country) => {
 document.getElementById("generate_info").addEventListener("click", () => {
     // hard code the country that we want to display info for
     getCountryByName("spain")
-    .then(country => {
-        displayCountryInfo(country);
-    })
+    getCountryByName("korea")
 });
-
 
 
 //3 ----------------------------------------------------------- 
